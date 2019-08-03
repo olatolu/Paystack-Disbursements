@@ -1,0 +1,14 @@
+#account_name_error, #account_num_error, #bank_code_error{
+
+    margin-top: 3px;
+
+    display: none;
+}
+
+#compulsory{
+    color: red;
+}
+
+#stat_on{color: green;}
+
+#stat_off{color: lightgrey;}
