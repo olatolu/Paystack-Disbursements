@@ -1,5 +1,16 @@
 <?php
 
+/*
+ * Configuring environmental variable
+ *
+ * NUBAN, PERPAGE, CURRENCY, AUTH, HOST INCLUDE PATH
+ *
+ * @INCLUDE PATH, The line commented is for the local environment
+ *
+ * Heroku line is active
+ *
+ */
+
 define('TYPE','nuban');
 
 define('PERPAGE',10);
@@ -11,6 +22,8 @@ define('AUTH','Authorization: Bearer sk_test_3323644da3a719b70c0e54e7da4b877e9e6
 defined('DS') ? null : define('DS', DIRECTORY_SEPARATOR);
 
 define('SITE_ROOT', DS . 'Applications' . DS . 'XAMPP' . DS . 'xamppfiles' . DS . 'htdocs' . DS . 'Paystack-Disbursements');
+
+//define('SITE_ROOT', DS . 'app');
 
 defined('INCLUDES_PATH') ? null : define('INCLUDES_PATH', SITE_ROOT . DS . 'admin'.DS.'includes');
 
