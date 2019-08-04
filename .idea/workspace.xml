@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5a2018d9-3d8a-48d1-8429-b306ccca95e3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/includes/ajax.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/includes/ajax.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/includes/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/includes/functions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/includes/init.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/includes/init.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/includes/session.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/includes/session.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/includes/supplier.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/includes/supplier.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/includes/transfer.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/includes/transfer.php" afterDir="false" />
-    </list>
+    <list default="true" id="5a2018d9-3d8a-48d1-8429-b306ccca95e3" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,18 +22,18 @@
         <counts>
           <entry key="Procfile" value="5" />
           <entry key="css" value="297" />
-          <entry key="htaccess" value="17" />
+          <entry key="htaccess" value="19" />
           <entry key="md" value="62" />
-          <entry key="php" value="15265" />
+          <entry key="php" value="15267" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="297" />
           <entry key="Markdown" value="62" />
-          <entry key="PHP" value="15265" />
+          <entry key="PHP" value="15267" />
           <entry key="PLAIN_TEXT" value="5" />
-          <entry key="htaccess" value="17" />
+          <entry key="htaccess" value="19" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -72,11 +64,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/admin/includes/init.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="268">
-              <caret line="48" selection-start-line="48" selection-end-line="48" />
+            <state relative-caret-position="238">
+              <caret line="35" column="2" selection-start-line="35" selection-start-column="2" selection-end-line="35" selection-end-column="2" />
               <folding>
                 <element signature="e#7#207#0#PHP" expanded="true" />
               </folding>
@@ -84,9 +76,13 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.htaccess">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="1" column="1" selection-start-line="1" selection-start-column="1" selection-end-line="1" selection-end-column="1" />
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -147,13 +143,13 @@
         <option value="$PROJECT_DIR$/admin/make_transfer.php" />
         <option value="$PROJECT_DIR$/includes/navigation.php" />
         <option value="$PROJECT_DIR$/admin/login.php" />
-        <option value="$PROJECT_DIR$/.htaccess" />
-        <option value="$PROJECT_DIR$/admin/includes/init.php" />
         <option value="$PROJECT_DIR$/admin/includes/transfer.php" />
         <option value="$PROJECT_DIR$/admin/includes/supplier.php" />
         <option value="$PROJECT_DIR$/admin/includes/session.php" />
         <option value="$PROJECT_DIR$/admin/includes/functions.php" />
         <option value="$PROJECT_DIR$/admin/includes/ajax.php" />
+        <option value="$PROJECT_DIR$/.htaccess" />
+        <option value="$PROJECT_DIR$/admin/includes/init.php" />
       </list>
     </option>
   </component>
@@ -166,7 +162,7 @@
   <component name="PhpServers">
     <servers />
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="1">
     <option name="y" value="25" />
     <option name="width" value="1279" />
     <option name="height" value="707" />
@@ -248,12 +244,12 @@
       <option name="presentableId" value="Default" />
       <updated>1564488897219</updated>
       <workItem from="1564488909772" duration="95240000" />
-      <workItem from="1564850850414" duration="32418000" />
+      <workItem from="1564850850414" duration="33126000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="127658000" />
+    <option name="totallyTimeSpent" value="128366000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -265,12 +261,13 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="25" width="1279" height="707" extended-state="0" />
+    <frame x="0" y="25" width="1279" height="707" extended-state="1" />
+    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.25383994" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="0" visible="true" weight="0.47479674" />
+      <window_info anchor="bottom" id="Terminal" order="0" weight="0.47479674" />
       <window_info anchor="bottom" id="Database Changes" order="1" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="3" show_stripe_button="false" />
@@ -597,18 +594,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.htaccess">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="1" selection-start-line="1" selection-start-column="1" selection-end-line="1" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/admin/includes/init.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="48" selection-start-line="48" selection-end-line="48" />
+        <state relative-caret-position="238">
+          <caret line="35" column="2" selection-start-line="35" selection-start-column="2" selection-end-line="35" selection-end-column="2" />
           <folding>
             <element signature="e#7#207#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.htaccess">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
 </project>

@@ -26,14 +26,14 @@ defined('DS') ? null : define('DS', DIRECTORY_SEPARATOR);
  *
  */
 
-define('SITE_ROOT', DS . 'Applications' . DS . 'XAMPP' . DS . 'xamppfiles' . DS . 'htdocs' . DS . 'Paystack-Disbursements');
+//define('SITE_ROOT', DS . 'Applications' . DS . 'XAMPP' . DS . 'xamppfiles' . DS . 'htdocs' . DS . 'Paystack-Disbursements');
 
 /*--------------------------------------------------------------*/
 /* For Heroku Environment
  *
  */
 
-//define('SITE_ROOT', DS . 'app');
+define('SITE_ROOT', DS . 'app');
 
 defined('INCLUDES_PATH') ? null : define('INCLUDES_PATH', SITE_ROOT . DS . 'admin'.DS.'includes');
 
