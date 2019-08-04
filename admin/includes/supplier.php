@@ -273,6 +273,4 @@ class Supplier
 // END OF CLASS USER
 
 }
-
-
 ?>

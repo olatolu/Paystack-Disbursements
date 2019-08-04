@@ -79,6 +79,4 @@ function pagination($total)
         return (int)($total / PERPAGE) + 1;
     }
 }
-
-
 ?>

@@ -221,6 +221,4 @@ class Transfer
 
 
 } // END OF CLASS
-
-
 ?>

@@ -47,7 +47,5 @@ require_once(INCLUDES_PATH. DS ."supplier.php");
 require_once(INCLUDES_PATH. DS ."transfer.php");
 require_once(INCLUDES_PATH. DS ."session.php");
 
-
-
 ?>
 
