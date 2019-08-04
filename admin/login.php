@@ -42,36 +42,46 @@ if (isset($_POST['submit'])) {
 }
 ?>
 
+    <div>
 
-    <div class="col-md-4 col-md-offset-3">
-        <?php if (!empty($the_message)) { ?>
-            <div class="alert alert-warning"><?php echo $the_message; ?></div>
-        <?php } ?>
+        <!-- ADMIN CONTENT AREA - DASHBOARD-->
+        <div class="container-fluid">
 
-        <form id="login-id" action="" method="post">
+            <div class="col-md-4 col-md-offset-3">
+                <?php if (!empty($the_message)) { ?>
+                    <div class="alert alert-warning"><?php echo $the_message; ?></div>
+                <?php } ?>
 
-            <div class="form-group">
-                <label for="username">Username</label>
-                <input type="text" class="form-control" name="username" value="admin">
+                <form id="login-id" action="" method="post">
+
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" class="form-control" name="username" value="admin">
+
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" name="password" value="admin">
+
+                    </div>
+
+
+                    <div class="form-group">
+                        <input type="submit" name="submit" value="Submit" class="btn btn-primary">
+
+                    </div>
+
+
+                </form>
+
 
             </div>
 
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" class="form-control" name="password" value="admin">
-
-            </div>
-
-
-            <div class="form-group">
-                <input type="submit" name="submit" value="Submit" class="btn btn-primary">
-
-            </div>
-
-
-        </form>
-
+        </div>
+        <!-- /.container-fluid -->
 
     </div>
+    <!-- /#page-wrapper -->
 
 <?php include("includes/footer.php"); ?>
