@@ -1,33 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5a2018d9-3d8a-48d1-8429-b306ccca95e3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/add_supplier.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/add_supplier.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/css/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/delete_supplier.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/delete_supplier.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/edit_supplier.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/edit_supplier.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/finalize_transfer.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/includes/admin_dash_content.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/includes/admin_dash_content.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/includes/admin_side_nav.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/includes/admin_side_nav.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/includes/admin_top_nav.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/includes/admin_top_nav.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/includes/ajax.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/includes/ajax.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/includes/comment.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/includes/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/includes/functions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/includes/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/includes/header.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/includes/init.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/includes/init.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/includes/login.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/includes/session.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/includes/session.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/includes/supplier.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/includes/supplier.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/includes/transfer.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/includes/transfer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/logout.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/logout.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/make_transfer.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/make_transfer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/suppliers.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/suppliers.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/transfers.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-    </list>
+    <list default="true" id="5a2018d9-3d8a-48d1-8429-b306ccca95e3" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,8 +76,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/admin/includes/init.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="214">
-              <caret line="28" column="2" selection-start-line="28" selection-start-column="2" selection-end-line="28" selection-end-column="2" />
+            <state relative-caret-position="101">
+              <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
               <folding>
                 <element signature="e#7#207#0#PHP" expanded="true" />
               </folding>
@@ -259,12 +233,12 @@
       <option name="presentableId" value="Default" />
       <updated>1564488897219</updated>
       <workItem from="1564488909772" duration="95240000" />
-      <workItem from="1564850850414" duration="24700000" />
+      <workItem from="1564850850414" duration="24969000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="119940000" />
+    <option name="totallyTimeSpent" value="120209000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -277,12 +251,11 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1279" height="707" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.25383994" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.25383994" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="0" visible="true" weight="0.18373984" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="0" visible="true" weight="0.47479674" />
       <window_info anchor="bottom" id="Database Changes" order="1" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="3" show_stripe_button="false" />
@@ -621,8 +594,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/admin/includes/init.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
-          <caret line="28" column="2" selection-start-line="28" selection-start-column="2" selection-end-line="28" selection-end-column="2" />
+        <state relative-caret-position="101">
+          <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
           <folding>
             <element signature="e#7#207#0#PHP" expanded="true" />
           </folding>
