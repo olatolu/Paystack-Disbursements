@@ -21,7 +21,7 @@ if (isset($_POST['submit'])) {
     $email = trim($_POST['email']);
     $name = trim($_POST['name']);
 
-    if (empty($account_number) || empty($account_name) || $bank_code == 0) {
+    if (empty($account_number) || empty($account_name) || $bank_code == 0 || empty($bank_code)) {
 
         $message = "Compulsory fields are mark in asterisk";
 
