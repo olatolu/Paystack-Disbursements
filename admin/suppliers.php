@@ -86,7 +86,7 @@ $suppliers = Supplier::find_all();
                                             <td><?php echo $supplier->createdAt; ?></td>
                                             <td>
                                                 <div class="action_links">
-                                                    <a id="delete"
+                                                    <a class="delete"
                                                        href="delete_supplier.php?id=<?php echo $supplier->recipient_code; ?>"><i
                                                                 class="fa fa-trash btn btn-danger"></i></a>
                                                     <a href="edit_supplier.php?id=<?php echo $supplier->recipient_code; ?>"><i
@@ -122,11 +122,11 @@ $suppliers = Supplier::find_all();
 
         $(document).ready(function () {
 
-            $('#delete').click(function (event) {
+            $('.delete').click(function (event) {
                 if (!confirm('Confirm Delete?')) {
                     event.preventDefault();
                 }
-            })
+            });
 
 
         });
