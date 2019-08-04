@@ -1,32 +1,48 @@
 <?php
 
- function classAutoLoader($class){
+/*--------------------------------------------------------------*/
+/* Class Auto Load
+ * Help load missing class file if exist
+ */
 
- $class = strtolower($class);
+function classAutoLoader($class)
+{
 
- $path = INCLUDES_PATH. DS ."{$class}.php";
+    $class = strtolower($class);
 
- if(is_file($path) && !class_exists($class)){
+    $path = INCLUDES_PATH . DS . "{$class}.php";
 
- 	include $path;
+    if (is_file($path) && !class_exists($class)) {
 
- }else{
+        include $path;
 
- 	die("The file name {$class}.php can not be found man..... Too Bad :)");
- }
+    } else {
+
+        die("The file name {$class}.php can not be found man..... Too Bad :)");
+    }
 
 }
 
 spl_autoload_register('classAutoLoader');
 
-//redirect
+/*--------------------------------------------------------------*/
+/* App Redirect function
+ *
+ */
 
-function redirect($location){
+function redirect($location)
+{
 
-	header("Location: {$location}");
+    header("Location: {$location}");
 }
 
-function banks(){
+/*--------------------------------------------------------------*/
+/* All Nigeria Bank List Function
+ *
+ */
+
+function banks()
+{
 
     // Get cURL resource
     $curl = curl_init();
@@ -47,14 +63,20 @@ function banks(){
 
 }
 
-function pagination($total){
+/*--------------------------------------------------------------*/
+/* Pagination helper
+ *
+ */
 
-    if(PERPAGE%$total == 0){
+function pagination($total)
+{
 
-        return (int)$total/PERPAGE;
+    if (PERPAGE % $total == 0) {
 
-    }else{
-        return (int)($total/PERPAGE) + 1;
+        return (int)$total / PERPAGE;
+
+    } else {
+        return (int)($total / PERPAGE) + 1;
     }
 }
 

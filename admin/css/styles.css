@@ -1,14 +1,49 @@
-#account_name_error, #account_num_error, #bank_code_error{
+/*
+CUSTOM CSS
+
+ */
+
+#account_name_error, #account_num_error, #bank_code_error {
 
     margin-top: 3px;
 
     display: none;
 }
 
-#compulsory{
+#compulsory {
     color: red;
 }
 
-#stat_on{color: green;}
+#stat_on {
+    color: green;
+}
 
-#stat_off{color: lightgrey;}
+#stat_off {
+    color: lightgrey;
+}
+
+.action_links a {
+    float: left;
+    padding-left: 2.5px;
+    padding-right: 2.5px;
+    margin-top: 5px;
+}
+
+.transfer_conf_det {
+    text-align: center;
+}
+
+.transfer_conf_det h4 {
+    color: #002bff;
+}
+
+.account_name_alert span, #otp-info {
+
+    padding: 5px 5px;
+
+    border-radius: 3px;
+
+    display: none;
+
+    margin-top: 3px;
+}

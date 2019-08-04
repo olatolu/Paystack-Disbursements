@@ -1,53 +1,67 @@
-<?php 
+<?php
 
-class Supplier{
+class Supplier
+{
 
-public static function find_all(){
+    /*--------------------------------------------------------------*/
+    /* Method Find All Supplier
+     *
+     * @success: Return list of all supplier
+     */
+    public static function find_all()
+    {
 
-    $url = "https://api.paystack.co/transferrecipient";
-
-    $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL,$url);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-
-    $headers = [
-        'Authorization: Bearer sk_test_3323644da3a719b70c0e54e7da4b877e9e644d9b',
-        'Content-Type: application/json',
-
-    ];
-    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-
-    $request = curl_exec ($ch);
-
-    curl_close ($ch);
-
-    if ($request) {
-        return $result = json_decode($request);
-    }
-
-
-}
-
-
-    public static function create($account_name, $account_number, $bank_code, $email='', $name=''){
-
-        //Set other parameters as keys in the $postdata array
-        $postdata =  array(
-            'type' => TYPE,
-            'account_name' => $account_name, //$name,
-            'email' => $email, //$name,
-            'name' => $name, //$description,
-            'account_number' => $account_number, //$account_number,
-            'bank_code' =>  $bank_code, //$bank_code,
-            'currency' => CURRENCY,
-
-            );
         $url = "https://api.paystack.co/transferrecipient";
 
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL,$url);
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+        $headers = [
+            'Authorization: Bearer sk_test_3323644da3a719b70c0e54e7da4b877e9e644d9b',
+            'Content-Type: application/json',
+
+        ];
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+        $request = curl_exec($ch);
+
+        curl_close($ch);
+
+        if ($request) {
+            return $result = json_decode($request);
+        }
+
+
+    }
+
+    /*--------------------------------------------------------------*/
+    /* Method Create Supplier
+     *
+     * @use: To create a new supplier
+     */
+
+
+    public static function create($account_name, $account_number, $bank_code, $email = '', $name = '')
+    {
+
+        //Set other parameters as keys in the $postdata array
+        $postdata = array(
+            'type' => TYPE,
+            'account_name' => $account_name,
+            'email' => $email,
+            'name' => $name,
+            'account_number' => $account_number,
+            'bank_code' => $bank_code,
+            'currency' => CURRENCY,
+
+        );
+        $url = "https://api.paystack.co/transferrecipient";
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_POST, 1);
-        curl_setopt($ch, CURLOPT_POSTFIELDS,json_encode($postdata));  //Post Fields
+        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($postdata));  //Post Fields
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
         $headers = [
@@ -57,9 +71,9 @@ public static function find_all(){
         ];
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
-        $request = curl_exec ($ch);
+        $request = curl_exec($ch);
 
-        curl_close ($ch);
+        curl_close($ch);
 
         if ($request) {
             $response = json_decode($request);
@@ -69,18 +83,25 @@ public static function find_all(){
                 return true;
             }
             return false;
-        }else{
+        } else {
 
             return false;
         }
 
     }
 
-    public static function update($account_name, $account_number, $bank_code, $email='', $name=''){
+    /*--------------------------------------------------------------*/
+    /* Method Update All Supplier
+     *
+     * @success: Update the calling supplier
+     */
+
+    public static function update($account_name, $account_number, $bank_code, $email = '', $name = '')
+    {
 
         //Set other parameters as keys in the $postdata array
-        $postdata =  array(
-            'account_number' => $account_number, //$name,
+        $postdata = array(
+            'account_number' => $account_number,
             'account_name' => $account_name,
             'type' => TYPE,
             'name' => $name,
@@ -91,9 +112,9 @@ public static function find_all(){
         $url = "https://api.paystack.co/transferrecipient/";
 
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL,$url);
+        curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_POST, 1);
-        curl_setopt($ch, CURLOPT_POSTFIELDS,json_encode($postdata));  //Post Fields
+        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($postdata));  //Post Fields
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
         $headers = [
@@ -103,29 +124,36 @@ public static function find_all(){
         ];
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
-        $request = curl_exec ($ch);
+        $request = curl_exec($ch);
 
-        curl_close ($ch);
+        curl_close($ch);
 
         if ($request) {
 
-            $response =json_decode($request);
+            $response = json_decode($request);
 
             return ($response->status == 'true') ? true : false;
 
-        }else{
+        } else {
 
             return false;
         }
 
     }
 
-    public static function account_verify($account_num, $account_name, $bank_code){
+    /*--------------------------------------------------------------*/
+    /* Method Account Verify
+     *
+     * @success: Return true if account number resolve
+     */
 
-        $url = 'https://api.paystack.co/bank/resolve?account_number='. $account_num.'&bank_code='. $bank_code;
+    public static function account_verify($account_num, $account_name, $bank_code)
+    {
+
+        $url = 'https://api.paystack.co/bank/resolve?account_number=' . $account_num . '&bank_code=' . $bank_code;
 
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL,$url);
+        curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
         $headers = [
@@ -134,39 +162,45 @@ public static function find_all(){
         ];
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
-        $request = curl_exec ($ch);
+        $request = curl_exec($ch);
 
-        curl_close ($ch);
+        curl_close($ch);
 
         if ($request) {
 
-            $response =json_decode($request);
+            $response = json_decode($request);
 
-            if($response->status == 'true' && ($response->data->account_name == $account_name)) {
+            if ($response->status == 'true' && ($response->data->account_name == $account_name)) {
 
                 return true;
 
-            }else{
+            } else {
 
                 return false;
 
             }
 
-        }else{
+        } else {
 
             return false;
         }
 
     }
 
-    //DELTE USER
-    public static function delete($id){
+    /*--------------------------------------------------------------*/
+    /* Method Delete Supplier
+     *
+     * @success: Set a Supplier to inactive
+     */
+
+    public static function delete($id)
+    {
 
 
-        $url = "https://api.paystack.co/transferrecipient/".$id;
+        $url = "https://api.paystack.co/transferrecipient/" . $id;
 
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL,$url);
+        curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "DELETE");
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
@@ -177,31 +211,37 @@ public static function find_all(){
         ];
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
-        $request = curl_exec ($ch);
+        $request = curl_exec($ch);
 
-        curl_close ($ch);
+        curl_close($ch);
 
         if ($request) {
 
-            $response =json_decode($request);
+            $response = json_decode($request);
 
             return ($response->status == 'true') ? true : false;
 
-        }else{
+        } else {
 
             return false;
         }
 
     }
 
+    /*--------------------------------------------------------------*/
+    /* Method List All Transfer
+     *
+     * @success: Return all the list of Transfer
+     */
 
-    public static function listTransfers($perPage='', $page=''){
 
+    public static function listTransfers($perPage = '', $page = '')
+    {
 
-        $url = "https://api.paystack.co/transfer?perPage=".$perPage."&page=".$page;
+        $url = "https://api.paystack.co/transfer?perPage=" . $perPage . "&page=" . $page;
 
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL,$url);
+        curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
@@ -212,19 +252,17 @@ public static function find_all(){
         ];
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
-        $request = curl_exec ($ch);
+        $request = curl_exec($ch);
 
-        curl_close ($ch);
+        curl_close($ch);
 
         if ($request) {
 
-            $response =json_decode($request);
+            $response = json_decode($request);
 
             return ($response->status == 'true') ? $response->data : false;
 
-            //return $request;
-
-        }else{
+        } else {
 
             return false;
         }
@@ -235,8 +273,6 @@ public static function find_all(){
 // END OF CLASS USER
 
 }
-
-
 
 
 ?>

@@ -1,14 +1,18 @@
 <?php include("includes/header.php"); ?>
 
-<?php if(!$session->is_signed_in()){redirect("login.php");} ?>
+<?php if (!$session->is_signed_in()) {
+    redirect("login.php");
+} ?>
 
 <?php
 
-if(empty($_GET['id'])){
+//Gt the supplier data if we have get request
+
+if (empty($_GET['id'])) {
 
     redirect("suppliers.php");
 
-}else {
+} else {
 
     $suppliers = Supplier::find_all();
 
@@ -27,63 +31,61 @@ if(empty($_GET['id'])){
     }
 
     //Check that we have a supplier data else redirect
-    if(!isset($account_number)){
+    if (!isset($account_number)) {
 
         redirect("suppliers.php");
 
     }
 
 
-
 }
 
-//$a = Supplier::update($_GET['id'], '', '');
-//
-//var_dump($a);
+//Collecting submitted data
 
+if (isset($_POST['submit'])) {
 
-//var_dump($supplier);
+    /* **************************
+    *   Performing series of validation
+    *   Trim of the data collected
+    *   Check for empty
+    *   Check for numbers/email where necessary
+    *****************************/
 
-    if (isset($_POST['submit'])) {
+    $email_new = trim($_POST['email']);
+    $name_new = trim($_POST['name']);
+    $account_number_new = trim($_POST['account_number']);
+    $account_name_new = trim($_POST['account_name']);
+    $bank_code_new = trim($_POST['bank_code']);
 
-        $email_new = trim($_POST['email']);
-        $name_new = trim($_POST['name']);
-        $account_number_new = trim($_POST['account_number']);
-        $account_name_new = trim($_POST['account_name']);
-        $bank_code_new = trim($_POST['bank_code']);
+    if (!empty($email_new) && !filter_var($email_new, FILTER_VALIDATE_EMAIL)) {
 
-        if (!empty($email_new) && !filter_var($email_new, FILTER_VALIDATE_EMAIL)) {
-
-            $message = "Invalid email format";
-
-        } else {
-
-            // Updated Supplier
-
-            if (Supplier::update($account_name_new, $account_number_new, $bank_code_new, $email_new, $name_new)) {
-
-                $session->message("Transfer recipient updated successfully");
-
-                redirect("suppliers.php");
-
-            } else {
-
-                $message = "something went wrong please try again later";
-            }
-
-        }
-
+        $message = "Invalid email format";
 
     } else {
 
-        $message = "";
+        // Updated Supplier
+
+        if (Supplier::update($account_name_new, $account_number_new, $bank_code_new, $email_new, $name_new)) {
+
+            $session->message("Transfer recipient updated successfully");
+
+            redirect("suppliers.php");
+
+        } else {
+
+            $message = "something went wrong please try again later";
+        }
+
     }
 
 
+} else {
+
+    $message = "";
+}
+
 
 ?>
-
-
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 
@@ -112,7 +114,7 @@ if(empty($_GET['id'])){
 
                         <div class="col-md-8">
 
-                            <?php if(!empty($message)){ ?>
+                            <?php if (!empty($message)) { ?>
 
                                 <div class="alert alert-warning"><?php echo $message; ?></div>
 
@@ -122,9 +124,16 @@ if(empty($_GET['id'])){
 
                                 <label for="account_number">Account Number</label>
 
-                                <input type="text" disabled="disabled" id="account_num" name="account_number" value="<?php if(isset($account_number)){ echo $account_number; } ?>" class="form-control">
-                                <input type="hidden" name="account_number" value="<?php if(isset($account_number)){ echo $account_number; } ?>" class="form-control">
-                                <input type="hidden" name="account_name" value="<?php if(isset($account_name)){ echo $account_name; } ?>" class="form-control">
+                                <input type="text" disabled="disabled" id="account_num" name="account_number"
+                                       value="<?php if (isset($account_number)) {
+                                           echo $account_number;
+                                       } ?>" class="form-control">
+                                <input type="hidden" name="account_number" value="<?php if (isset($account_number)) {
+                                    echo $account_number;
+                                } ?>" class="form-control">
+                                <input type="hidden" name="account_name" value="<?php if (isset($account_name)) {
+                                    echo $account_name;
+                                } ?>" class="form-control">
 
                             </div>
 
@@ -136,13 +145,13 @@ if(empty($_GET['id'])){
 
                                     <option value="0">-- select option --</option>
                                     <?php
-                                    foreach (banks() as $data){
+                                    foreach (banks() as $data) {
 
-                                        if(isset($bank_code) && ($bank_code == $data->code)){
+                                        if (isset($bank_code) && ($bank_code == $data->code)) {
 
-                                            echo "<option selected='selected' value='". $data->code . "'> ". $data->name . "</option>";
+                                            echo "<option selected='selected' value='" . $data->code . "'> " . $data->name . "</option>";
 
-                                        }else {
+                                        } else {
                                             echo "<option value='" . $data->code . "'> " . $data->name . "</option>";
                                         }
                                     }
@@ -150,21 +159,30 @@ if(empty($_GET['id'])){
 
 
                                 </select>
-                                <input type="hidden" name="bank_code" value="<?php if(isset($bank_code)){ echo $bank_code; } ?>">
+                                <input type="hidden" name="bank_code" value="<?php if (isset($bank_code)) {
+                                    echo $bank_code;
+                                } ?>">
                             </div>
 
                             <div class="form-group">
 
                                 <label for="account_name">Account Name</label>
 
-                                <input type="text" id="account_name" disabled="disabled" value="<?php if(isset($account_name)){ echo $account_name; } ?>" class="form-control">
+                                <input type="text" id="account_name" disabled="disabled"
+                                       value="<?php if (isset($account_name)) {
+                                           echo $account_name;
+                                       } ?>" class="form-control">
                             </div>
 
                             <div class="form-group">
 
                                 <label for="email">Supplier Email</label>
 
-                                <input type="text" name="email" value="<?php if(isset($email_new)){ echo $email_new; }elseif (isset($email)){echo $email;} ?>" class="form-control">
+                                <input type="text" name="email" value="<?php if (isset($email_new)) {
+                                    echo $email_new;
+                                } elseif (isset($email)) {
+                                    echo $email;
+                                } ?>" class="form-control">
 
                             </div>
 
@@ -172,12 +190,19 @@ if(empty($_GET['id'])){
 
                                 <label for="description">Supplier Company Name (Optional)</label>
 
-                                <textarea name="name" id="" cols="30" rows="3" class="form-control"><?php if(isset($name_new)){ echo $name_new; }elseif (isset($name)){echo $name;} ?></textarea>
+                                <textarea name="name" id="" cols="30" rows="3"
+                                          class="form-control"><?php if (isset($name_new)) {
+                                        echo $name_new;
+                                    } elseif (isset($name)) {
+                                        echo $name;
+                                    } ?></textarea>
 
                             </div>
 
                             <div class="form-group">
-                                <input type="submit" name="submit" id="submit" value="Update Supplier" class="btn btn-primary pull-right">
+                                <input type="submit" name="submit" id="submit" value="Update Supplier"
+                                       class="btn btn-primary pull-right">
+                                <a href="suppliers.php" class="btn btn-warning pull-left">Cancel</a>
                             </div>
 
                         </div>
@@ -196,77 +221,5 @@ if(empty($_GET['id'])){
 
     </div>
     <!-- /#page-wrapper -->
-
-<!--    <script type="text/javascript">-->
-<!---->
-<!--        $(document).ready(function(){-->
-<!---->
-<!--            $('#account_name').prop('disabled', true);-->
-<!--            $('#submit').prop('disabled', true);-->
-<!---->
-<!--            $("select.bank_code").change(function(){-->
-<!---->
-<!--                //validation-->
-<!---->
-<!--                var account_number = $('#account_num').val();-->
-<!--                var bank_code = $("select.bank_code").val();-->
-<!---->
-<!--                //alert(account_number);-->
-<!---->
-<!--                /*if(empty(account_number) || isNaN(account_number)){-->
-<!---->
-<!--                    //$('#account_num_error').toggle(1000);-->
-<!---->
-<!--                    //$('#account_num_error').html('Account number must be valid');-->
-<!---->
-<!--                    alert('Account number must be valid');-->
-<!---->
-<!---->
-<!--                }-->
-<!---->
-<!--                if(bank_code == "0"){-->
-<!---->
-<!--                    $('#bank_code_error').toggle(1000);-->
-<!---->
-<!--                    $('#bank_code_error').html('Please select a bank');-->
-<!--                }*/-->
-<!---->
-<!---->
-<!---->
-<!--                $.ajax({-->
-<!--                    type: "POST",-->
-<!--                    url: 'includes/ajax.php',-->
-<!--                    data: {account_number: account_number, bank_code: bank_code},-->
-<!--                    dataType: 'json',-->
-<!--                    success: function(data){-->
-<!---->
-<!--                        if(data.code == 200) {-->
-<!---->
-<!--                            $('#account_name').val(data.msg);-->
-<!---->
-<!--                            $('#main_account_name').val(data.msg);-->
-<!---->
-<!--                            $('#account_name_error').hide();-->
-<!---->
-<!--                            $('#submit').prop('disabled', false);-->
-<!---->
-<!--                        }else{-->
-<!---->
-<!--                            $('#account_name').val('');-->
-<!---->
-<!--                            $('#account_name_error').toggle(1000);-->
-<!---->
-<!--                            $('#account_name_error').html('Account can not be confirm at the moment!!! Check the details or try again later');-->
-<!---->
-<!--                            $('#submit').prop('disabled', true);-->
-<!---->
-<!--                        }-->
-<!--                    }-->
-<!--                });-->
-<!---->
-<!--            });-->
-<!--        });-->
-<!---->
-<!--    </script>-->
 
 <?php include("includes/footer.php"); ?>

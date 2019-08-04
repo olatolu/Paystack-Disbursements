@@ -6,6 +6,7 @@
 
 <?php
 
+//get all suppliers
 $suppliers = Supplier::find_all();
 
 
@@ -52,10 +53,7 @@ $suppliers = Supplier::find_all();
                             <?php $session->unset_message();
                         } ?>
 
-                        <?php if (count($suppliers->data) > 0) {
-
-                            //var_dump($suppliers);?>
-
+                        <?php if (count($suppliers->data) > 0) { ?>
 
                             <table class="table table-hover">
                                 <thead>
@@ -75,9 +73,10 @@ $suppliers = Supplier::find_all();
 
                                 <?php foreach ($suppliers->data as $supplier) : ?>
                                     <tr>
-                                        <td><?php echo ($supplier->active == true) ? '<span class="btn btn-success">Active</span>' : '<span class="btn btn-secondary">Inactive</span>'; ?></td>
-                                        <td><?php echo $supplier->details->account_name; ?>
-                                            <hr><?php echo $supplier->name; ?></td>
+                                        <td><?php echo ($supplier->active == true) ? '<i id="stat_on" class="fa fa-toggle-on"></i>' : '<i id="stat_off" class="fa fa-toggle-off"></i>'; ?></td>
+                                        <td><b><?php echo $supplier->details->account_name; ?></b>
+                                            (<?php echo $supplier->name; ?>)
+                                        </td>
                                         <td><?php echo $supplier->recipient_code; ?></td>
                                         <td><?php echo $supplier->email; ?></td>
                                         <td><?php echo '<b>' . $supplier->details->account_number . '</b><br>' . $supplier->details->bank_name; ?></td>
@@ -85,12 +84,15 @@ $suppliers = Supplier::find_all();
                                         <td><?php echo $supplier->createdAt; ?></td>
                                         <td>
                                             <div class="action_links">
-                                                <a href="delete_supplier.php?id=<?php echo $supplier->recipient_code; ?>">Delete</a>
-                                                <a href="edit_supplier.php?id=<?php echo $supplier->recipient_code; ?>">Edit</a>
+                                                <a id="delete"
+                                                   href="delete_supplier.php?id=<?php echo $supplier->recipient_code; ?>"><i
+                                                            class="fa fa-trash btn btn-danger"></i></a>
+                                                <a href="edit_supplier.php?id=<?php echo $supplier->recipient_code; ?>"><i
+                                                            class="fa fa-edit btn btn-primary"></i></a>
                                             </div>
                                         </td>
                                         <td><a href="make_transfer.php?id=<?php echo $supplier->recipient_code; ?>"
-                                               autocapitalize="btn btn-danger">Make Transfer</a></td>
+                                               class="btn btn-success"><i class="fa fa-share"> Transfer</a></td>
                                     </tr>
                                 <?php endforeach; ?>
                                 </tbody>
@@ -112,5 +114,20 @@ $suppliers = Supplier::find_all();
 
     </div>
     <!-- /#page-wrapper -->
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            $('#delete').click(function (event) {
+                if (!confirm('Confirm Delete?')) {
+                    event.preventDefault();
+                }
+            })
+
+
+        });
+
+    </script>
 
 <?php include("includes/footer.php"); ?>

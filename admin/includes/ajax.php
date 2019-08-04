@@ -4,17 +4,26 @@ ob_start();
 
 require_once("init.php");
 
-if(!$session->is_signed_in()){ echo "You are cheating :)"; exit;}
+// Checking to make sure that ajax call can not be make unless admin login
 
-if($_POST['action'] == 'reSendCode'){
+if (!$session->is_signed_in()) {
+    echo "You are cheating :)";
+    exit;
+}
+
+if ($_POST['action'] == 'reSendCode') {
 
     return reSendCode();
 
-}elseif ($_POST['action'] == 'accountVerify'){
+} elseif ($_POST['action'] == 'accountVerify') {
 
     return accountVerify();
 }
 
+/*--------------------------------------------------------------*/
+/* Account verify ajax call
+ *
+ */
 function accountVerify()
 {
     $url = 'https://api.paystack.co/bank/resolve?account_number=' . $_POST['account_number'] . '&bank_code=' . $_POST['bank_code'];
@@ -51,52 +60,58 @@ function accountVerify()
 
 }
 
- function reSendCode(){
+/*--------------------------------------------------------------*/
+/* Resend OTP AJAX call
+ *
+ */
 
-     //Set other parameters as keys in the $postdata array
-         $postdata =  array(
-             'transfer_code' => $_POST['transfer_ref'],
-             'reason' => 'transfer'
-         );
-        $url = 'https://api.paystack.co/transfer/resend_otp';
+function reSendCode()
+{
 
-     $ch = curl_init();
-     curl_setopt($ch, CURLOPT_URL,$url);
-     curl_setopt($ch, CURLOPT_POST, 1);
-     curl_setopt($ch, CURLOPT_POSTFIELDS,json_encode($postdata));  //Post Fields
-     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    //Set other parameters as keys in the $postdata array
+    $postdata = array(
+        'transfer_code' => $_POST['transfer_ref'],
+        'reason' => 'transfer'
+    );
+    $url = 'https://api.paystack.co/transfer/resend_otp';
 
-        $headers = [
-            AUTH,
-            'Content-Type: application/json',
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_POST, 1);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($postdata));  //Post Fields
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
-        ];
-        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+    $headers = [
+        AUTH,
+        'Content-Type: application/json',
 
-        $request = curl_exec ($ch);
+    ];
+    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
-     curl_close($ch);
+    $request = curl_exec($ch);
 
-     if ($request) {
+    curl_close($ch);
 
-         $response = json_decode($request);
+    if ($request) {
 
-         if ($response->status == 'true') {
+        $response = json_decode($request);
 
-             echo json_encode(['code' => 200, 'msg' => $response->message]);
+        if ($response->status == 'true') {
 
-         } else{
+            echo json_encode(['code' => 200, 'msg' => $response->message]);
 
-             echo json_encode(['code' => 404, 'msg' => $response->message]);
-         }
+        } else {
 
-     }else {
+            echo json_encode(['code' => 404, 'msg' => $response->message]);
+        }
 
-         echo json_encode(['code' => 404, 'msg' => 'Fails']);
-     }
+    } else {
+
+        echo json_encode(['code' => 404, 'msg' => 'Fails']);
+    }
 
 
- }
+}
 
 
 ?>

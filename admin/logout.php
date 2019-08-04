@@ -1,6 +1,10 @@
 <?php require_once("includes/header.php"); ?>
 
-<?php 
+<?php
+/*--------------------------------------------------------------*/
+/* Logout
+ *
+ */
 $session->logout();
 
 redirect("index.php");

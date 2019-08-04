@@ -23,15 +23,16 @@ if (isset($_POST['submit'])) {
     $balance = "balance";
 
     /* **************************
-    *   Perform series of validation
+    *   Performing series of validation
     *   Trim of the data collected
     *   Check for empty
     *   Check for numbers/email where necessary
     *****************************/
 
-    if (empty($amount) || $recipient == "0") {
+    if (empty($amount) || $recipient == "0" || empty($recipient)) {
 
         $message = "Compulsory fields are mark in asterisk";
+
     } elseif (!is_numeric($amount) || $amount < 100) {
 
         $message = "Transfer amount be invalid and at least NGN 100";
@@ -89,17 +90,22 @@ if (isset($_POST['submit_otp'])) {
     $otp_code = $amount = trim($_POST['confirm_otp']);
     $otp_transaction_ref = trim($_POST['otp_transaction_ref']);
 
+    $transfer_des = trim($_POST['transfer_des']);
+    $transfer_acnt_details = trim($_POST['transfer_acnt_details']);
+
     //validation
 
     if (empty($otp_code) || empty($otp_transaction_ref)) {
 
         $finalize_transfer = true;
 
+        $message2 = "OTP Code is required field";
+
     } elseif (!is_numeric($otp_code)) {
 
         $finalize_transfer = true;
 
-        $message = "An error occur please try again later";
+        $message2 = "OTP is not valid";
 
     } else {
 
@@ -115,10 +121,15 @@ if (isset($_POST['submit_otp'])) {
 
                 $finalize_transfer = true;
 
-                $message = "An error occur please try again later"; // Catching exceptional cases
+                $message2 = "An error occur please try again later"; // Catching exceptional cases
             }
 
 
+        }else {
+
+            $finalize_transfer = true;
+
+            $message2 = "Your OTP is not valid"; // Catching exceptional cases
         }
 
     }
@@ -126,7 +137,7 @@ if (isset($_POST['submit_otp'])) {
 
 } else {
 
-    $message = "";
+    $message2 = "";
 }
 
 
@@ -197,7 +208,7 @@ if (isset($_POST['submit_otp'])) {
 
                                     <label for="bank_code">Choose Supplier<span id="compulsory"> *</span></label>
 
-                                    <select name="recipient" class="form-control">
+                                    <select name="recipient" class="bank_code form-control">
 
                                         <option value="0">-- select option --</option>
                                         <?php
@@ -230,7 +241,8 @@ if (isset($_POST['submit_otp'])) {
                                 <br>
                                 <div class="form-group">
                                     <input type="submit" name="submit" id="submit" value="Transfer"
-                                           class="btn btn-primary">
+                                           class="btn btn-primary pull-right">
+                                    <a href="suppliers.php" class="btn btn-warning pull-left">Cancel</a>
                                 </div>
 
                             </div>
@@ -247,9 +259,9 @@ if (isset($_POST['submit_otp'])) {
 
                             <div class="col-md-8">
 
-                                <?php if (!empty($message)) { ?>
+                                <?php if (!empty($message2)) { ?>
 
-                                    <div class="alert alert-warning"><?php echo $message; ?></div>
+                                    <div class="alert alert-warning"><?php echo $message2; ?></div>
 
                                 <?php } ?>
 
@@ -280,12 +292,20 @@ if (isset($_POST['submit_otp'])) {
                                            } ?>">
                                     <a href="" id="resendCode" class="resend_otp_a"><i class="fa fa-undo"></i> Resend
                                         code</a>
-                                    <p class="alert-danger" id="otp-info"></p>
+                                    <p class="alert-info" id="otp-info"></p>
 
                                 </div>
+                                <input type="hidden" name="transfer_des" value="<?php if (isset($transfer_des)) {
+                                    echo $transfer_des;
+                                } ?>">
+                                <input type="hidden" name="transfer_acnt_details"
+                                       value="<?php if (isset($transfer_acnt_details)) {
+                                           echo $transfer_acnt_details;
+                                       } ?>">
                                 <div class="form-group">
-                                    <input type="submit" name="submit_otp" id="submit_otp" value="Confirm Transaction"
-                                           class="btn btn-primary">
+                                    <input type="submit" name="submit_otp" id="submit_otp" value="Complete Transaction"
+                                           class="btn btn-primary pull-right">
+                                    <a href="suppliers.php" class="btn btn-warning pull-left">Cancel</a>
                                 </div>
 
                             </div>
@@ -313,6 +333,8 @@ if (isset($_POST['submit_otp'])) {
 
         $(document).ready(function () {
 
+            $(".bank_code option:first").attr("disabled", "true");
+
             $('#account_name').prop('disabled', true);
 
             <?php if (Transfer::balance(1) < 15000) {
@@ -324,56 +346,11 @@ if (isset($_POST['submit_otp'])) {
 
         } ?>
 
-            /*$("select.bank_code").change(function(){
-
-                //validation
-
-                var account_number = $('#account_num').val();
-                var bank_code = $("select.bank_code").val();
-
-
-
-
-                $.ajax({
-                    type: "POST",
-                    url: 'includes/ajax.php',
-                    data: {action: 'accountVerify', account_number: account_number, bank_code: bank_code},
-                    dataType: 'json',
-                    success: function(data){
-
-                        if(data.code == 200) {
-
-                            $('#account_name').val(data.msg);
-
-                            $('#main_account_name').val(data.msg);
-
-                            $('#account_name_error').hide();
-
-                            $('#submit').prop('disabled', false);
-
-                        }else{
-
-                            $('#account_name').val('');
-
-                            $('#account_name_error').toggle(1000);
-
-                            $('#account_name_error').html('Account can not be confirm at the moment!!! Check the details or try again later');
-
-                            $('#submit').prop('disabled', true);
-
-                        }
-                    }
-                });
-
-            });*/
-
             $('#resendCode').click(function (event) {
 
                 event.preventDefault();
 
-                $('#otp-info').html('');
-
-                //alert("Resend Code");
+                $('#otp-info').html('').css('display', 'none');
 
                 $.ajax({
                     type: "POST",
@@ -388,12 +365,12 @@ if (isset($_POST['submit_otp'])) {
 
                         if (data.code == 200) {
 
-                            $('#otp-info').html(data.msg);
+                            $('#otp-info').html(data.msg).css('display', 'inline-block');
 
 
                         } else {
 
-                            $('#otp-info').html(data.msg);
+                            $('#otp-info').html(data.msg).css('display', 'inline-block');
 
                         }
                     }

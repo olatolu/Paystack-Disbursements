@@ -1,16 +1,24 @@
 <?php
 
-class Session{
-
+class Session
+{
+    /*--------------------------------------------------------------*/
+    /* Declaring session properties
+     *
+     */
     private $signed_in = false;
 
     public $user_id;
 
     public $message;
 
-    public $count;
+    /*--------------------------------------------------------------*/
+    /* Instantiating constructor
+     *
+     */
 
-    function __construct(){
+    function __construct()
+    {
 
         session_start();
 
@@ -18,31 +26,18 @@ class Session{
 
         $this->check_message();
 
-        $this->visitor_count();
-
 
     }
 
-    public function visitor_count(){
+    /*--------------------------------------------------------------*/
+    /* Method message
+     * Use to pass message across the app
+     */
 
-        if(isset($_SESSION['count'])){
+    public function message($msg = "")
+    {
 
-            return $this->count = $_SESSION['count']++;
-
-            //unset($_SESSION['count']);
-        }else{
-
-            //$_SESSION['count'] = 1;
-
-            return $this->count = $_SESSION['count'] =1;
-
-        }
-
-    }
-
-    public function message($msg=""){
-
-        if(!empty($msg)){
+        if (!empty($msg)) {
 
             $_SESSION['message'] = $msg;
         } else {
@@ -50,9 +45,15 @@ class Session{
         }
     }
 
-    public function check_message(){
+    /*--------------------------------------------------------------*/
+    /* Method Check Message
+     * Use to check when message is available and set it
+     */
 
-        if(isset($_SESSION['message'])){
+    public function check_message()
+    {
+
+        if (isset($_SESSION['message'])) {
             $this->message = $_SESSION['message'];
         } else {
 
@@ -60,22 +61,39 @@ class Session{
         }
     }
 
-    public function unset_message(){
+    /*--------------------------------------------------------------*/
+    /* Use to unset message
+     *
+     * Use to unset message
+     */
+
+    public function unset_message()
+    {
 
         unset($_SESSION['message']);
     }
 
-    // always check for weather user is signed in
+    /*--------------------------------------------------------------*/
+    /* Method Is SignedIn
+     *
+     * Use to check Auth user
+     */
 
-    public function is_signed_in(){
+    public function is_signed_in()
+    {
 
         return $this->signed_in;
     }
 
-    //login user
-    public function login($user){
+    /*--------------------------------------------------------------*/
+    /* Method Login
+     *
+     * Help login user
+     */
+    public function login($user)
+    {
 
-        if($user){
+        if ($user) {
 
             $this->user_id = $_SESSION['user_id'] = $user;
             $this->signed_in = true;
@@ -83,21 +101,33 @@ class Session{
         }
     }
 
-    //logout
-    public function logout(){
+    /*--------------------------------------------------------------*/
+    /* Method Logout
+     *
+     * Help log user out
+     */
+    public function logout()
+    {
 
         unset($_SESSION['user_id']);
         unset($this->user_id);
         $this->signed_in = false;
     }
 
-    private function check_the_login(){
+    /*--------------------------------------------------------------*/
+    /* Method Check The Login
+     *
+     * Double check login user
+     */
 
-        if(isset($_SESSION['user_id'])){
+    private function check_the_login()
+    {
+
+        if (isset($_SESSION['user_id'])) {
 
             $this->user_id = $_SESSION['user_id'];
             $this->signed_in = true;
-        }else{
+        } else {
 
 
             unset($this->user_id);
@@ -107,17 +137,14 @@ class Session{
     }
 
 
-
-
-
-    //END CLASS SESSION
+    //END OF CLASS SESSION
 }
 
+/*--------------------------------------------------------------*/
+/* Creating and instance of the class
+ *
+ */
 $session = new Session();
-
-
-
-
 
 
 ?>
