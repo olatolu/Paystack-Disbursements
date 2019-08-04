@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5a2018d9-3d8a-48d1-8429-b306ccca95e3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/delete_supplier.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/delete_supplier.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/includes/init.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/includes/init.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/suppliers.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/suppliers.php" afterDir="false" />
-    </list>
+    <list default="true" id="5a2018d9-3d8a-48d1-8429-b306ccca95e3" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,14 +28,14 @@
           <entry key="css" value="297" />
           <entry key="htaccess" value="19" />
           <entry key="md" value="62" />
-          <entry key="php" value="15338" />
+          <entry key="php" value="15343" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="297" />
           <entry key="Markdown" value="62" />
-          <entry key="PHP" value="15338" />
+          <entry key="PHP" value="15343" />
           <entry key="PLAIN_TEXT" value="5" />
           <entry key="htaccess" value="19" />
         </counts>
@@ -76,8 +71,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin/includes/init.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="28" selection-start-line="28" selection-end-line="28" />
+            <state relative-caret-position="238">
+              <caret line="35" selection-start-line="35" selection-end-line="35" />
               <folding>
                 <element signature="e#7#207#0#PHP" expanded="true" />
               </folding>
@@ -88,26 +83,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin/delete_supplier.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="34" column="3" selection-start-line="34" selection-start-column="3" selection-end-line="34" selection-end-column="3" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/admin/suppliers.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="88" column="62" selection-start-line="88" selection-start-column="62" selection-end-line="88" selection-end-column="62" />
+            <state relative-caret-position="150">
+              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/suppliers.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1635">
+              <caret line="109" column="22" selection-start-line="109" selection-start-column="22" selection-end-line="109" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.htaccess">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" column="1" selection-start-line="1" selection-start-column="1" selection-end-line="1" selection-end-column="1" />
+            <state>
+              <caret lean-forward="true" />
             </state>
           </provider>
         </entry>
@@ -173,10 +168,10 @@
         <option value="$PROJECT_DIR$/admin/includes/session.php" />
         <option value="$PROJECT_DIR$/admin/includes/functions.php" />
         <option value="$PROJECT_DIR$/admin/includes/ajax.php" />
-        <option value="$PROJECT_DIR$/.htaccess" />
-        <option value="$PROJECT_DIR$/admin/includes/init.php" />
-        <option value="$PROJECT_DIR$/admin/delete_supplier.php" />
         <option value="$PROJECT_DIR$/admin/suppliers.php" />
+        <option value="$PROJECT_DIR$/admin/delete_supplier.php" />
+        <option value="$PROJECT_DIR$/admin/includes/init.php" />
+        <option value="$PROJECT_DIR$/.htaccess" />
       </list>
     </option>
   </component>
@@ -261,12 +256,12 @@
       <updated>1564488897219</updated>
       <workItem from="1564488909772" duration="95240000" />
       <workItem from="1564850850414" duration="33423000" />
-      <workItem from="1564935389689" duration="1989000" />
+      <workItem from="1564935389689" duration="2233000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="130652000" />
+    <option name="totallyTimeSpent" value="130896000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -279,12 +274,11 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1279" height="707" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.25788197" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.25788197" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="0" weight="0.47479674" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="0" visible="true" weight="0.47479674" />
       <window_info anchor="bottom" id="Database Changes" order="1" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="3" show_stripe_button="false" />
@@ -531,13 +525,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.htaccess">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="1" selection-start-line="1" selection-start-column="1" selection-end-line="1" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/admin/includes/supplier.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="463">
@@ -545,27 +532,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/admin/suppliers.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1635">
+          <caret line="109" column="22" selection-start-line="109" selection-start-column="22" selection-end-line="109" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/admin/delete_supplier.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="34" column="3" selection-start-line="34" selection-start-column="3" selection-end-line="34" selection-end-column="3" />
+        <state relative-caret-position="150">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/admin/includes/init.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="28" selection-start-line="28" selection-end-line="28" />
+        <state relative-caret-position="238">
+          <caret line="35" selection-start-line="35" selection-end-line="35" />
           <folding>
             <element signature="e#7#207#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/suppliers.php">
+    <entry file="file://$PROJECT_DIR$/.htaccess">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="88" column="62" selection-start-line="88" selection-start-column="62" selection-end-line="88" selection-end-column="62" />
+        <state>
+          <caret lean-forward="true" />
         </state>
       </provider>
     </entry>
