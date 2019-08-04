@@ -17,7 +17,7 @@
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-12 text-right">
-                                    <div class="huge" style="font-size: 30px;" ><?php echo Transfer::balance(); ?></div>
+                                    <div class="huge" style="font-size: 30px;"><?php echo Transfer::balance(); ?></div>
                                 </div>
                             </div>
                         </div>
@@ -123,7 +123,7 @@
                         ]);
 
                         var options = {
-                            title: 'Tranfers Details'
+                            title: 'TRANSFERS DETAILS'
                         };
 
                         var chart = new google.visualization.PieChart(document.getElementById('piechart'));
@@ -132,7 +132,7 @@
                     }
                 </script>
 
-                <div id="piechart" style="width: 900px; height: 500px;"></div>
+                <div id="piechart" style="width: 100%; height: 500px;"></div>
 
 
             </div>

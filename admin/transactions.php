@@ -63,34 +63,36 @@ $pageNum = pagination(count($totalTransfers));
                             <?php $session->unset_message();
                         } ?>
 
-                        <?php if (count($transfers) > 0) {
+                        <?php if (count($transfers) > 0) { ?>
 
-                            //var_dump($transfers);?>
+                            <div class="table-responsive" id="m_table">
 
 
-                            <table class="table table-hover">
-                                <thead>
-                                <tr>
-                                    <th>Status</th>
-                                    <th>Transfer Details</th>
-                                    <th>Recipient Account</th>
-                                    <th>Date</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-
-                                <?php foreach ($transfers as $transfer) : ?>
+                                <table class="table table-hover">
+                                    <thead>
                                     <tr>
-                                        <td><?php echo ($transfer->status == 'success') ? '<i id="stat_on" class="fa fa-toggle-on"></i>' : '<i id="stat_off" class="fa fa-toggle-off"></i>'; ?></td>
-                                        <td>
-                                            <b><?php echo $transfer->recipient->currency . number_format($transfer->amount / 100, 2); ?></b>
-                                            to <?php echo $transfer->recipient->name; ?></td>
-                                        <td><?php echo "<b>" . $transfer->recipient->details->account_number . "</b> " . $transfer->recipient->details->bank_name; ?></td>
-                                        <td><?php echo date('d M, Y @ H:i:s A', strtotime($transfer->createdAt)); ?></td>
+                                        <th>Status</th>
+                                        <th>Transfer Details</th>
+                                        <th>Recipient Account</th>
+                                        <th>Date</th>
                                     </tr>
-                                <?php endforeach; ?>
-                                </tbody>
-                            </table>
+                                    </thead>
+                                    <tbody>
+
+                                    <?php foreach ($transfers as $transfer) : ?>
+                                        <tr>
+                                            <td><?php echo ($transfer->status == 'success') ? '<i id="stat_on" class="fa fa-toggle-on"></i>' : '<i id="stat_off" class="fa fa-toggle-off"></i>'; ?></td>
+                                            <td>
+                                                <b><?php echo $transfer->recipient->currency . number_format($transfer->amount / 100, 2); ?></b>
+                                                to <?php echo $transfer->recipient->name; ?></td>
+                                            <td><?php echo "<b>" . $transfer->recipient->details->account_number . "</b> " . $transfer->recipient->details->bank_name; ?></td>
+                                            <td><?php echo date('d M, Y @ H:i:s A', strtotime($transfer->createdAt)); ?></td>
+                                        </tr>
+                                    <?php endforeach; ?>
+                                    </tbody>
+                                </table>
+
+                            </div>
 
                         <?php } else {
                             echo "<p> There is no transaction to show </p>";

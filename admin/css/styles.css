@@ -47,3 +47,12 @@ CUSTOM CSS
 
     margin-top: 3px;
 }
+
+#m_table {
+    margin-top: 10px;
+}
+
+#m-form {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+}

@@ -55,48 +55,51 @@ $suppliers = Supplier::find_all();
 
                         <?php if (count($suppliers->data) > 0) { ?>
 
-                            <table class="table table-hover">
-                                <thead>
-                                <tr>
-                                    <th>Status</th>
-                                    <th>Name</th>
-                                    <th>Recipient Code</th>
-                                    <th>Email address</th>
-                                    <th>Account</th>
-                                    <th>Type</th>
-                                    <th>Added On</th>
-                                    <th>Action</th>
-                                    <th>Transfer</th>
-                                </tr>
-                                </thead>
-                                <tbody>
+                            <div class="table-responsive" id="m_table">
 
-                                <?php foreach ($suppliers->data as $supplier) : ?>
+                                <table class="table table-hover table-bordered">
+                                    <thead>
                                     <tr>
-                                        <td><?php echo ($supplier->active == true) ? '<i id="stat_on" class="fa fa-toggle-on"></i>' : '<i id="stat_off" class="fa fa-toggle-off"></i>'; ?></td>
-                                        <td><b><?php echo $supplier->details->account_name; ?></b>
-                                            (<?php echo $supplier->name; ?>)
-                                        </td>
-                                        <td><?php echo $supplier->recipient_code; ?></td>
-                                        <td><?php echo $supplier->email; ?></td>
-                                        <td><?php echo '<b>' . $supplier->details->account_number . '</b><br>' . $supplier->details->bank_name; ?></td>
-                                        <td><?php echo $supplier->type; ?></td>
-                                        <td><?php echo $supplier->createdAt; ?></td>
-                                        <td>
-                                            <div class="action_links">
-                                                <a id="delete"
-                                                   href="delete_supplier.php?id=<?php echo $supplier->recipient_code; ?>"><i
-                                                            class="fa fa-trash btn btn-danger"></i></a>
-                                                <a href="edit_supplier.php?id=<?php echo $supplier->recipient_code; ?>"><i
-                                                            class="fa fa-edit btn btn-primary"></i></a>
-                                            </div>
-                                        </td>
-                                        <td><a href="make_transfer.php?id=<?php echo $supplier->recipient_code; ?>"
-                                               class="btn btn-success"><i class="fa fa-share"> Transfer</a></td>
+                                        <th>Status</th>
+                                        <th>Name</th>
+                                        <th>Recipient Code</th>
+                                        <th>Email address</th>
+                                        <th>Account</th>
+                                        <th>Type</th>
+                                        <th>Added On</th>
+                                        <th>Action</th>
+                                        <th>Transfer</th>
                                     </tr>
-                                <?php endforeach; ?>
-                                </tbody>
-                            </table>
+                                    </thead>
+                                    <tbody>
+
+                                    <?php foreach ($suppliers->data as $supplier) : ?>
+                                        <tr>
+                                            <td><?php echo ($supplier->active == true) ? '<i id="stat_on" class="fa fa-toggle-on"></i>' : '<i id="stat_off" class="fa fa-toggle-off"></i>'; ?></td>
+                                            <td><b><?php echo $supplier->details->account_name; ?></b>
+                                                (<?php echo $supplier->name; ?>)
+                                            </td>
+                                            <td><?php echo $supplier->recipient_code; ?></td>
+                                            <td><?php echo $supplier->email; ?></td>
+                                            <td><?php echo '<b>' . $supplier->details->account_number . '</b><br>' . $supplier->details->bank_name; ?></td>
+                                            <td><?php echo $supplier->type; ?></td>
+                                            <td><?php echo $supplier->createdAt; ?></td>
+                                            <td>
+                                                <div class="action_links">
+                                                    <a id="delete"
+                                                       href="delete_supplier.php?id=<?php echo $supplier->recipient_code; ?>"><i
+                                                                class="fa fa-trash btn btn-danger"></i></a>
+                                                    <a href="edit_supplier.php?id=<?php echo $supplier->recipient_code; ?>"><i
+                                                                class="fa fa-edit btn btn-primary"></i></a>
+                                                </div>
+                                            </td>
+                                            <td><a href="make_transfer.php?id=<?php echo $supplier->recipient_code; ?>"
+                                                   class="btn btn-success"><i class="fa fa-share"> Transfer</a></td>
+                                        </tr>
+                                    <?php endforeach; ?>
+                                    </tbody>
+                                </table>
+                            </div>
 
                         <?php } else {
                             echo "<p> There is no supplier to show </p>";

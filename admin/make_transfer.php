@@ -125,7 +125,7 @@ if (isset($_POST['submit_otp'])) {
             }
 
 
-        }else {
+        } else {
 
             $finalize_transfer = true;
 
@@ -162,7 +162,7 @@ if (isset($_POST['submit_otp'])) {
         <div class="container-fluid">
 
             <!-- Page Heading -->
-            <div class="row">
+            <div class="row" id="m-form">
                 <div class="col-lg-12">
                     <!--
                     |Checking for which stage we are and showing relevant form
