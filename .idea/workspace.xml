@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5a2018d9-3d8a-48d1-8429-b306ccca95e3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="5a2018d9-3d8a-48d1-8429-b306ccca95e3" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,8 +67,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.htaccess">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="20" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
+            <state>
+              <caret selection-end-line="2" selection-end-column="59" />
             </state>
           </provider>
         </entry>
@@ -232,12 +230,12 @@
       <option name="presentableId" value="Default" />
       <updated>1564488897219</updated>
       <workItem from="1564488909772" duration="95240000" />
-      <workItem from="1564850850414" duration="27235000" />
+      <workItem from="1564850850414" duration="27615000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="122475000" />
+    <option name="totallyTimeSpent" value="122855000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -250,6 +248,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1279" height="707" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.25383994" />
@@ -593,8 +592,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.htaccess">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="20" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
+        <state>
+          <caret selection-end-line="2" selection-end-column="59" />
         </state>
       </provider>
     </entry>
